@@ -287,10 +287,10 @@ void EliminateLines(void)
 	 * actually 4, but has some hole on some line. Maybe, it should be
 	 * calculated as 1 + 3 ? */
 	switch (consecutive_lines) {
-		case 1: score += 1; break;
-		case 2: score += 3; break;
-		case 3: score += 7; break;
-		case 4: score += 15; break;
+		case 1: score += 1 * (speed+1); break;
+		case 2: score += 3 * (speed+1); break;
+		case 3: score += 7 * (speed+1); break;
+		case 4: score += 15 * (speed+1); break;
 	}
 
 	lines_on_this_speed += consecutive_lines;
