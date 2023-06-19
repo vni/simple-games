@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<style type="text/css">
+<!--
+p#Score, p#Fruits, div#Info p {
+	text-align: center;
+}
+
+.apple  { color: green; background: black; }
+.banana { color: yellow; background: black; }
+.orange { color: orange; background: black; }
+.watermelon { color: pink; background: black; }
+.melon      { color: lightyellow; background: black; }
+/*p#Fruits { background-color: black; }*/
+-->
+		</style>
+	</head>
+	<body>
+		<div id="Info">
+			<p>A <b>snake</b> game clone written in go (gopherjs) by <a href="http://github.com/vni">vni</a>.<br />
+			The <a href="http://github.com/vni/gopherjs-snake">source code</a> is freely available.</p>
+			<p>
+			<b>controls:</b><br />
+			<b>j</b> - turn snake counter clockwise<br />
+			<b>l</b> - turn snake clockwise<br />
+			<b>space</b> - toggle pause</p>
+		</div>
+
+		<center><canvas id="Canvas">
+			Your browser doesn't support html5 canvas element.
+		</canvas></center>
+
+		<div>
+			<p id="Score"></p>
+			<b><p id="Fruits"></p></b>
+		</div>
+
+		<script type="text/javascript" src="Snake.js"></script>
+	</body>
+</html>
