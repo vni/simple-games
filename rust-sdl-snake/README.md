@@ -1,0 +1,6 @@
+- [ ] - push the code to GitHub
+- [ ] - Add description to README.md
+- [ ] - Populate the readme with keyboard controls
+- [ ] - snake collision with itself
+- [ ] - game pause
+- [ ] - apples rote with time
