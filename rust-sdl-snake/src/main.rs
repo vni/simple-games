@@ -32,6 +32,7 @@ fn main() {
         .event_pump()
         .expect("Failed to get event_pump from sdl_context");
     let mut speed = 100;
+    let mut game_paused = false;
 
     let mut frame_counter = 0;
     'game_loop: loop {
@@ -70,6 +71,10 @@ fn main() {
                     keycode: Some(Keycode::Num0),
                     ..
                 } => { speed += 5; println!("speed: {speed}"); }
+                Event::KeyDown {
+                    keycode: Some(Keycode::Space),
+                    ..
+                } => game_paused = !game_paused,
                 _ => {/* println!("Unknown key: {event:?}"); */}
             }
         }
@@ -81,14 +86,16 @@ fn main() {
         renderer.present();
 
         std::thread::sleep(std::time::Duration::new(0, 1_000_000_000u32 / (30 + snake.apples_eaten() + speed - 100)));
-        frame_counter += 1;
-        if frame_counter % 10 == 0 {
-            snake.tick();
-            if *snake.head() == food.0 {
-                snake.eat_apple();
-                food = food::Food::new_random(&config);
+        if !game_paused {
+            frame_counter += 1;
+            if frame_counter % 10 == 0 {
+                snake.tick();
+                if *snake.head() == food.0 {
+                    snake.eat_apple();
+                    food = food::Food::new_random(&config);
+                }
+                frame_counter = 0;
             }
-            frame_counter = 0;
         }
     }
 }
